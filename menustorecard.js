@@ -27,8 +27,15 @@ html += /* html */`
             --subtitleColour: var(--color-amber-500);
         }
         
-        #menucard {
+        #menustorecard {
             background: var(--backgroundColour);
+        }
+
+        #image{
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
         }
 
         h3 {
@@ -43,17 +50,19 @@ html += /* html */`
         │                       HOVER STATES                       │
         ╰──────────────────────────────────────────────────────────╯ */
 
-        #menucard:hover {
-            color: var(--backgroundColour);
+        #menustorecard:hover {
+            color: var(--subtitleColour);
         }
 
-        #menucard:hover h3,
-        #menucard:hover h4 {
-            color: var(--backgroundColour);
+        #menustorecard:hover h3,
+        #menustorecard:hover h4 {
+            color: var(--subtitleColour);
         }
 
-
-
+        #menustorecard:hover #image {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
     /*  ╭──────────────────────────────────────────────────────────╮
         │                       MEDIA QUERIES                      │
         ╰──────────────────────────────────────────────────────────╯ */
@@ -74,13 +83,13 @@ html += /* html */`
         rounded-lg
         w-full
         overflow-hidden
+        min-h-[120px]
         
-        duration-500
+        duration-300
         ease-in-out
-
+        
+        hover:saturate-150
         hover:outline
-        outline-4
-        outline-white
         ">
 
         
@@ -93,7 +102,8 @@ html += /* html */`
                     text-sm">
                 </h3>
                 <h4 class="
-                    text-xs">
+                    text-xs
+                    font-thin">
                 </h4>
             </div>
 
@@ -102,6 +112,7 @@ html += /* html */`
                 absolute
                 z-30
                 h-full
+                w-full
                 ">
                 <slot></slot>
             </div>
